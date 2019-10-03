@@ -1,15 +1,17 @@
-s = 'В разные эпохи и у разных народов число Пи имело разное значение. \
-Например, в Древнем Египте оно равнялось 3.1604 у индусов оно приобрело \
-значение 3.162 китайцы пользовались числом, равным 3.1459 \
-Буквенное обозначение число Пи получило только в 1706 году – оно происходит \
-от начальных букв двух греческих слов, означающих окружность и периметр. \
-Буквой π число наделил математик Джонс, а прочно вошла в математику она \
-уже в 1737 году.'
-splitted_array = s.split()
-result = filter(lambda x: x.replace('.', '', 1).isdigit(), splitted_array)
-result = [float(x) for x in result]
-sum_float = sum(result)
-num_of_nums = len(result)
-max_from_num = max(result)
-print(result)
-print("Кол - во чисел в тексте: {} \nСумма сех чисел в тексте: {} \nМаксимальное число в тексте: {}".format(num_of_nums, sum_float, max_from_num))
+list_of_tasks = dict()
+i = 0
+while True:
+    choice = int(input('''1. Добавить задачу.
+2. Вывести список задач.
+3. Выход.
+Укажите число:  '''))
+    if choice == 1:
+        list_of_tasks['new_task%d' % i] = input('Сформулируйте задачу: ')
+        list_of_tasks['new_cat%d' % i] = input('Добавьте категорию к задаче: ')
+        list_of_tasks['new_time%d' % i] = input('Добавьте время к задаче: ')
+        i += 1
+    elif choice == 2:
+        for j in range(i):
+            print("\nЗадача: {}; Категория: {}; Дата: {}\n".format(list_of_tasks['new_task%d' % j], list_of_tasks['new_cat%d' % j], list_of_tasks['new_time%d' % j]))
+    elif choice == 3:
+        break
