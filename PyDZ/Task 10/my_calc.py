@@ -11,8 +11,8 @@ try:
         print(x * y)
     else:
         print(f"Операции '{oper}' не существует")
-except ZeroDivisionError as z:
+except ZeroDivisionError:
     print("/nДеление на ноль запрещено")
 
-except ValueError as v:
+except ValueError:
     print("\nСледует ввести число!")
