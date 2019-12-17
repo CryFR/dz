@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- <?php
+    session_start();
+    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+    header("Location: success.html");
+}
+?> -->
+<?php
+   ob_start();
+   session_start();
+?>
+
+<?
+   // error_reporting(E_ALL);
+   // ini_set("display_errors", 1);
+?>
+         <?php
+            $msg = '';
+
+            if (isset($_POST['login']) && !empty($_POST['username'])
+               && !empty($_POST['password'])) {
+
+               if ($_POST['username'] == 'Cry' &&
+                  $_POST['password'] == '1234') {
+                  $_SESSION['valid'] = true;
+                  $_SESSION['timeout'] = time();
+                  $_SESSION['username'] = 'tutorialspoint';
+
+                  header("Location: success.html");
+               }else {
+                  $msg = 'Wrong username or password';
+               }
+            }
+         ?>
+<html lang = "en" dir = "ltr">
+<head>
+
+    <title>LOGIN</title>
+    <link rel="stylesheet" type="text/css" href="stylelogin.css">
+</head>
+<body>
+<form class="box" action="login.php" method="post">
+    <h1>Login</h1>
+    <input type="text" name="" placeholder="Username">
+    <input type="password" name="" placeholder="Password">
+    <input type="submit" name="" value="Login">
+</body>
+</html>

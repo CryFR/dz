@@ -1,5 +1,5 @@
 import heapq
-with open('moby_clean.txt') as file:
+with open('moby_clean.txt', 'r') as file:
     words = {}
     for word in file:
         word = word.strip()
